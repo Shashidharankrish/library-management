@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Issue Books</h2>
+<mat-dialog-content>
+    <form>
+        <mat-selection-list  multiple>
+            <mat-list-option *ngFor="let book of availableBooks" [value]="book.id" [disabled]="book.quantity == 0" (click)="toggleSelection(book)" >
+                {{ book.title }} (Available: {{ book.quantity }})
+            </mat-list-option>
+        </mat-selection-list>
+        <p>
+            Books selected: {{ selectedBooks.length }}
+        </p>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button color="primary" [disabled]="selectedBooks.length == 0" (click)="issueBooks()">Issue</button>
+</mat-dialog-actions>

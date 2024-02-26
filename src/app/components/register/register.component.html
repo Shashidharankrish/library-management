@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>User Registration</h2>
+
+    <form (ngSubmit)="registerUser()">
+        <mat-form-field class="form-group">
+            <input matInput placeholder="Name" [(ngModel)]="name" name="name" required>
+        </mat-form-field>
+        <mat-form-field class="form-group">
+            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+            <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+            <mat-label>Role</mat-label>
+            <mat-select [(ngModel)]="role" name="role" required>
+                <mat-option value="admin">Admin</mat-option>
+                <mat-option value="user">User</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+            <input matInput type="text" placeholder="Contact Number" [(ngModel)]="contact" name="contact" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+            <input matInput type="text" placeholder="Location" [(ngModel)]="location" name="location" required>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" color="primary">Register</button>
+    </form>
+    <hr>
+    <a routerLink="/login">Back to login</a>
+</div>

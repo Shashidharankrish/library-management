@@ -1,0 +1,35 @@
+/* navbar.component.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.navbar-left {
+    flex-grow: 1;
+    overflow: hidden;
+    /* Prevent content from overflowing */
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.mat-icon-button {
+    margin-left: 10px;
+}
+
+/* Adjust the maximum width of the username */
+.navbar-right span {
+    max-width: 150px;
+    /* Adjust as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Add ellipsis for overflow text */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+}

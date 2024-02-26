@@ -1,0 +1,22 @@
+/* navbar.component.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.navbar-left {
+    flex-grow: 1;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.mat-icon-button {
+    margin-left: 10px;
+}

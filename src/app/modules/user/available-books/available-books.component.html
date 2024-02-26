@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Available Books</h2>
+    <h2 *ngIf="books.length == 0">No available books</h2>
+    <div *ngIf="books.length > 0">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="title">
+                <mat-header-cell class="mat-header-cell" *matHeaderCellDef>Title</mat-header-cell>
+                <mat-cell class="mat-cell" *matCellDef="let book">{{ book.title }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="author">
+                <mat-header-cell class="mat-header-cell" *matHeaderCellDef>Author</mat-header-cell>
+                <mat-cell class="mat-cell" *matCellDef="let book">{{ book.author }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="genre">
+                <mat-header-cell class="mat-header-cell" *matHeaderCellDef>Genre</mat-header-cell>
+                <mat-cell class="mat-cell" *matCellDef="let book">{{ book.genre }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell class="mat-header-cell" *matHeaderCellDef>Action</mat-header-cell>
+                <mat-cell class="mat-cell" *matCellDef="let book">
+                    <button mat-raised-button mat-button color="accent" (click)="borrowBook(book)">Borrow</button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row class="mat-header-row" *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row class="mat-row" *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+        </mat-table>
+    </div>
+</div>

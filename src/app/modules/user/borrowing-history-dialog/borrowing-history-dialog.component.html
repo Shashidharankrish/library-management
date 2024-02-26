@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Borrowing History</h1>
+<div mat-dialog-content>
+    <div *ngIf="borrowingHistory.length > 0; else noHistory">
+        <ul>
+            <li *ngFor="let book of borrowingHistory">
+                <div>
+                    <strong>Title:</strong> {{ book.title }}
+                </div>
+                <div>
+                    <strong>Author:</strong> {{ book.author }}
+                </div>
+                <div>
+                    <button mat-raised-button color="warn" (click)="returnBook(book)">Return</button>
+                </div>
+                <hr>
+            </li>
+        </ul>
+    </div>
+    <ng-template #noHistory>
+        <p>No borrowing history found.</p>
+    </ng-template>
+</div>

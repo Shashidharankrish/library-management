@@ -1,0 +1,15 @@
+<div class="navbar">
+    <div class="navbar-left">
+        <span>{{ libraryName }}</span>
+    </div>
+    <div class="navbar-right">
+        <mat-menu #adminMenu="matMenu">
+            <button mat-menu-item (click)="openAdminProfile()">Profile</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+        <button mat-icon-button [matMenuTriggerFor]="adminMenu">
+            <mat-icon>account_circle</mat-icon>
+            <span>{{ adminName }}</span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Edit user Profile</h1>
+<div mat-dialog-content>
+    <form [formGroup]="userForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" />
+            <mat-error *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+                Name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" />
+            <mat-error *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched">
+                Username is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" />
+            <mat-error *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Contact</mat-label>
+            <input matInput formControlName="contact" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Location</mat-label>
+            <input matInput formControlName="location" />
+        </mat-form-field>
+      
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onClose()">Cancel</button>
+    <button mat-button color="primary" type="submit" (click)="onSubmit()" [disabled]="userForm.invalid">Save</button>
+</div>
