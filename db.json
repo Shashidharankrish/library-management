@@ -103,6 +103,20 @@
           "quantity": 3,
           "price": 240,
           "id": 23
+        },
+        {
+          "id": 24,
+          "title": "Arasiyal Neram",
+          "author": "Sujatha",
+          "genre": "Political Thriller",
+          "year": 1986,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 248,
+          "isbn": "9788180617922",
+          "status": "borrowed",
+          "quantity": "0",
+          "price": 220
         }
       ]
     }
