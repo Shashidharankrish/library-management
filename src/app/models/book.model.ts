@@ -11,6 +11,7 @@ export interface Book {
   status: BookStatus;
   quantity: number;
   price: number;
+  imageURL: string
 }
 
 export enum BookStatus {

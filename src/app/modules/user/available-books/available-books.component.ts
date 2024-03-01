@@ -17,7 +17,6 @@ export class AvailableBooksComponent implements OnInit {
   displayedColumns: string[] = ['title', 'author', 'genre', 'actions'];
   books: Book[] = [];
 
-
   constructor(
     private booksService: BooksService,
     private userService: UserService,
@@ -36,20 +35,17 @@ export class AvailableBooksComponent implements OnInit {
   }
 
   borrowBook(book: Book): void {
-  
     const currentUser: User = JSON.parse(
       localStorage.getItem('currentUser') || '{}'
     );
 
-    
     if (currentUser && currentUser.role === 'user') {
-    
       this.userService.borrowBook(currentUser, book).subscribe(
         () => {
           this.snackBar.open('Book borrowed successfully!', 'Close', {
             duration: 3000,
             panelClass: 'success-snackbar',
-            horizontalPosition: 'center',
+            horizontalPosition: 'right',
           });
         },
         (error) => {

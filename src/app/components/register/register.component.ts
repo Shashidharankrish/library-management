@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   role: string = 'user';
   contact: string = '';
   location: string = '';
-  borrowLimit: number = 5;
+  bookLimit: number = 5;
   borrowedBooks= [[]]
 
   constructor(
@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
       role: this.role,
       contact: this.contact,
       location: this.location,
-      borrowLimit: this.borrowLimit,
+      bookLimit: this.bookLimit,
       borrowedBooks: this.borrowedBooks,
       email: this.email,
     };

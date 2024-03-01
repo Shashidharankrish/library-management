@@ -10,34 +10,38 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./borrowing-history-dialog.component.scss'],
 })
 export class BorrowingHistoryDialogComponent implements OnInit {
-  borrowingHistory: any[] = []; 
+  borrowingHistory: any[] = [];
   userId: string = '';
+  user: User | null = null;
 
-  constructor(private userService: UserService, private snackBar: MatSnackBar) {}
+  constructor(
+    private userService: UserService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
-   
     const userIdFromStorage = localStorage.getItem('currentUser');
 
     if (userIdFromStorage) {
       const currentUser = JSON.parse(userIdFromStorage);
-      this.userId = currentUser.id;
-
-     
-      this.fetchBorrowingHistory();
+      this.userService.getUserById(currentUser.id).subscribe(
+        (user: User) => {
+          this.user = user; // Assign the user object
+          this.borrowingHistory = user.borrowedBooks;
+        },
+        (error) => {
+          console.error('Error fetching user details:', error);
+        }
+      );
     } else {
       console.error('User ID not found in localStorage');
     }
   }
 
   fetchBorrowingHistory(): void {
-  
     this.userService.getUserById(this.userId).subscribe(
       (user: User) => {
-        console.log(user.borrowedBooks)
-     
         this.borrowingHistory = user.borrowedBooks;
-
       },
       (error) => {
         console.error('Error fetching borrowing history:', error);
@@ -46,45 +50,39 @@ export class BorrowingHistoryDialogComponent implements OnInit {
   }
 
   returnBook(book: Book): void {
-   console.log(book)
-    if (book.status === 'available') {
-     
+    if (!this.user) {
+      console.error('User not available');
+      return;
+    }
+
+    if (book.status === BookStatus.borrowed) {
       book.status = BookStatus.available;
 
-     
-      const updatedUser: User = {
-        id: this.userId,
-        name: '',
-        username: '',
-        password: '',
-        role: UserRole.User,
-        email: '',
-        contact: '',
-        location: '',
-        bookLimit: 0,
-        borrowedBooks: this.borrowingHistory,
-      };
+      // Remove the returned book from the list of borrowed books
+      this.user.borrowedBooks = this.user.borrowedBooks.filter(
+        (b) => b.id !== book.id
+      );
 
-    
-      this.userService.updateUser(updatedUser).subscribe(
+      // Update the user on the server
+      this.userService.updateUser(this.user).subscribe(
         () => {
-         this.snackBar.open('Updated successfully!', 'Close', {
-           duration: 3000,
-           panelClass: 'success-snackbar',
-           horizontalPosition: 'right',
-         });
+          this.snackBar.open('Book returned successfully!', 'Close', {
+            duration: 3000,
+            panelClass: 'success-snackbar',
+            horizontalPosition: 'right',
+          });
+          this.borrowingHistory = this.user ? this.user.borrowedBooks : [];
         },
         (error) => {
           console.error('Error returning book:', error);
         }
       );
     } else {
-      this.snackBar.open('Book returned successfully!', 'Close', {
+      this.snackBar.open('Book is not currently borrowed.', 'Close', {
         duration: 3000,
-        panelClass: 'success-snackbar',
+        panelClass: 'warning-snackbar',
         horizontalPosition: 'right',
       });
-      console.log('This book is not currently borrowed.');
     }
   }
 }

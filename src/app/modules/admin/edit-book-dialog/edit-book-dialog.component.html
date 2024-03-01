@@ -25,6 +25,10 @@
             <mat-label>Language</mat-label>
             <input matInput placeholder="Language" formControlName="language" required>
         </mat-form-field>
+    <mat-form-field appearance="outline">
+        <input matInput />
+        <input type="file" (change)="onFileSelected($event)" matInputFile placeholder="Choose file" accept="image/*" />
+    </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Pages</mat-label>
             <input matInput placeholder="Pages" formControlName="pages" required>

@@ -28,6 +28,7 @@ export class AddBookDialogComponent implements OnInit {
       status: ['', Validators.required],
       quantity: ['', Validators.required],
       price: ['', Validators.required],
+      imageURL: ['', Validators.required],
     });
   }
 
@@ -41,7 +42,6 @@ export class AddBookDialogComponent implements OnInit {
         horizontalPosition: 'right',
       });
     } else {
-   
       this.snackBar.open('Please fill in all required fields.', 'Close', {
         duration: 3000,
         panelClass: 'error-snackbar',
@@ -53,4 +53,35 @@ export class AddBookDialogComponent implements OnInit {
   onCancel(): void {
     this.dialogRef.close(null);
   }
+
+  onFileSelected(event: any) {
+    // Sir!  since json-server doesnt support fileupload, here i am just saving the file name to the imageURL
+    // I tried saving the image to the assets folder with json-server, Later i discovered, nodejs can only handle image uploads
+    // if you still want to save image in the book object just uncomment the function onFileSelected2() and replace the functionCall in template also
+
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.bookForm.patchValue({
+          imageURL: file.name,
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  // onFileSelected2(event: any) {
+  //   // since json-server doesnt support fileupload, here i am just saving the file name to the imageURL
+
+  //   const file: File = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       this.bookForm.patchValue({
+  //         imageURL: reader.result,
+  //       });
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // }
 }

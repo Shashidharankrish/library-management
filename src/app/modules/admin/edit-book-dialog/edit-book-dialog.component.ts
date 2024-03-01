@@ -22,8 +22,9 @@ export class EditBookDialogComponent implements OnInit {
     isbn: '',
     status: BookStatus.available,
     quantity: 0,
-    price: 0
-  }; 
+    price: 0,
+    imageURL: '',
+  };
 
   constructor(
     private dialogRef: MatDialogRef<EditBookDialogComponent>,
@@ -42,7 +43,8 @@ export class EditBookDialogComponent implements OnInit {
       isbn: [this.book.isbn, Validators.required],
       status: [this.book.status, Validators.required],
       quantity: [this.book.quantity, Validators.required],
-      price: [this.book.price, Validators.required]  
+      price: [this.book.price, Validators.required],
+      imageURL: [this.book.imageURL, Validators.required],
     });
   }
 
@@ -60,7 +62,8 @@ export class EditBookDialogComponent implements OnInit {
       isbn: this.book.isbn,
       status: this.book.status,
       quantity: this.book.quantity,
-      price: this.book.price
+      price: this.book.price,
+      imageURL: this.book.imageURL,
     });
   }
 
@@ -73,6 +76,36 @@ export class EditBookDialogComponent implements OnInit {
       this.dialogRef.close(updatedUserData);
     }
   }
+  onFileSelected(event: any) {
+    // Sir!  since json-server doesnt support fileupload, here i am just saving the file name to the imageURL
+    // I tried saving the image to the assets folder with json-server, Later i discovered, nodejs can only handle image uploads
+    // if you still want to save image in the book object just uncomment the function onFileSelected2() and replace the functionCall in template also
+
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.bookForm.patchValue({
+          imageURL: file.name,
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  // onFileSelected2(event: any) {
+  
+  //   const file: File = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       this.bookForm.patchValue({
+  //         imageURL: reader.result,
+  //       });
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // }
 
   onCancel(): void {
     this.dialogRef.close(null);

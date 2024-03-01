@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Borrowing History</h1>
 <div mat-dialog-content>
-    <div *ngIf="borrowingHistory.length > 0; else noHistory">
+    <div *ngIf="borrowingHistory.length > 1; else noHistory">
         <ul>
             <li *ngFor="let book of borrowingHistory">
                 <div>

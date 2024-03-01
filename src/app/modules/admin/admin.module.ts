@@ -62,6 +62,7 @@ const modules = [
   MatCheckboxModule,
   MatListModule,
   MatTooltipModule,
+  MatInputModule
 ];
 
 @NgModule({

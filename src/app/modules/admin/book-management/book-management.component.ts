@@ -44,19 +44,18 @@ export class BookManagementComponent implements OnInit {
 
   loadBooks(): void {
     this.booksService.getAllBooks().subscribe((books) => {
-
       this.books = books;
- 
-
       this.dataSource = new MatTableDataSource(books);
-             this.dataSource.sort = this.sort;
-             this.dataSource.paginator = this.paginator;
+      setTimeout(() => {
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      })
     });
   }
 
   openAddBookDialog(): void {
     const dialogRef = this.dialog.open(AddBookDialogComponent, {
-      width: '500px',
+      width: '800px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -71,7 +70,7 @@ export class BookManagementComponent implements OnInit {
 
   openEditBookDialog(book: Book): void {
     const dialogRef = this.dialog.open(EditBookDialogComponent, {
-      width: '500px',
+      width: '800px',
       data: { book },
     });
 
@@ -104,7 +103,7 @@ export class BookManagementComponent implements OnInit {
   openSnackBar(message: string): void {
     this.snackBar.open(message, 'Close', {
       duration: 3000,
-      horizontalPosition: 'center',
+      horizontalPosition: 'right',
     });
   }
 }
