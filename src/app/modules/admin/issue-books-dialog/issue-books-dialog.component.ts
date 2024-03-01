@@ -29,7 +29,6 @@ export class IssueBooksDialogComponent implements OnInit {
   fetchAvailableBooks(): void {
     this.booksService.getAllBooks().subscribe((books) => {
       this.availableBooks = books;
-      console.log('Available Books', this.availableBooks);
     });
   }
 

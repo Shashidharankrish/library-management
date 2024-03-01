@@ -2,13 +2,13 @@
   "users": [
     {
       "id": 3,
-      "username": "user",
-      "password": "user",
-      "email": "sdk@gmail.com",
-      "contact": "9738525135",
-      "location": "Hunsur",
-      "name": "Shashidharan K",
+      "name": "",
+      "username": "",
+      "password": "",
       "role": "user",
+      "email": "",
+      "contact": "",
+      "location": "",
       "bookLimit": "0",
       "borrowedBooks": [
         {
@@ -357,7 +357,7 @@
           "language": "Tamil",
           "pages": 412,
           "isbn": "9788180617922",
-          "status": "borrowed",
+          "status": "available",
           "quantity": 2,
           "price": 230
         },
@@ -370,7 +370,7 @@
           "language": "Tamil",
           "pages": 180,
           "isbn": "9788180617922",
-          "status": "borrowed",
+          "status": "available",
           "quantity": 3,
           "price": 190,
           "id": 18
@@ -416,6 +416,20 @@
           "quantity": 2,
           "price": 250,
           "id": 27
+        },
+        {
+          "id": 17,
+          "title": "Parthiban Kanavu",
+          "author": "Kalki Krishnamurthy",
+          "genre": "Historical Fiction",
+          "year": 1941,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 412,
+          "isbn": "9788180617922",
+          "status": "available",
+          "quantity": 2,
+          "price": 230
         }
       ]
     },
@@ -525,8 +539,107 @@
       "location": "asd",
       "name": "asd",
       "role": "user",
-      "bookLimit": "5",
-      "borrowedBooks": []
+      "bookLimit": "0",
+      "borrowedBooks": [
+        {
+          "title": "Mooka Nathi",
+          "author": "Cho Ramaswamy",
+          "genre": "Satire",
+          "year": 1964,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 180,
+          "isbn": "9788180617922",
+          "status": "available",
+          "quantity": 3,
+          "price": 190,
+          "id": 18
+        },
+        {
+          "title": "Mahanati",
+          "author": "Muktha Srinivasan",
+          "genre": "Biography",
+          "year": 1976,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 352,
+          "isbn": "9788180617922",
+          "status": "borrowed",
+          "quantity": 2,
+          "price": 250,
+          "id": 19
+        },
+        {
+          "title": "Mandhira Punnagai",
+          "author": "Vendhan",
+          "genre": "Mystery",
+          "year": 1986,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 294,
+          "isbn": "9788180617922",
+          "status": "borrowed",
+          "quantity": 2,
+          "price": 210,
+          "id": 20
+        },
+        {
+          "title": "Jeevanum Samayavum",
+          "author": "U. Ve. Swaminatha Iyer",
+          "genre": "Essays",
+          "year": 1958,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 192,
+          "isbn": "9788180617922",
+          "status": "borrowed",
+          "quantity": 2,
+          "price": 200,
+          "id": 22
+        },
+        {
+          "title": "Neela Velicham",
+          "author": "Kannadasan",
+          "genre": "Novel",
+          "year": 1963,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 308,
+          "isbn": "9788180617922",
+          "status": "borrowed",
+          "quantity": 3,
+          "price": 240,
+          "id": 23
+        },
+        {
+          "title": "Neela Velicham",
+          "author": "Kannadasan",
+          "genre": "Novel",
+          "year": 1963,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 308,
+          "isbn": "9788180617922",
+          "status": "borrowed",
+          "quantity": 3,
+          "price": 240,
+          "id": 23
+        },
+        {
+          "title": "Jeevanum Samayavum",
+          "author": "U. Ve. Swaminatha Iyer",
+          "genre": "Essays",
+          "year": 1958,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 192,
+          "isbn": "9788180617922",
+          "status": "borrowed",
+          "quantity": 2,
+          "price": 200,
+          "id": 22
+        }
+      ]
     },
     {
       "id": 6,
@@ -682,7 +795,7 @@
       "borrowedBooks": [
         []
       ],
-      "email": "",
+      "email": "admin@gmail.com",
       "id": 12
     },
     {
@@ -698,24 +811,53 @@
       ],
       "email": "",
       "id": 13
+    },
+    {
+      "id": 14,
+      "name": "",
+      "username": "",
+      "password": "",
+      "role": "user",
+      "email": "",
+      "contact": "",
+      "location": "",
+      "bookLimit": "2",
+      "borrowedBooks": [
+        [],
+        {
+          "id": 18,
+          "title": "Mooka Nathi",
+          "author": "Cho Ramaswamy",
+          "genre": "Satire",
+          "year": 1964,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 180,
+          "isbn": "9788180617922",
+          "status": "available",
+          "quantity": 3,
+          "price": 190
+        },
+        {
+          "title": "Mandhira Punnagai",
+          "author": "Vendhan",
+          "genre": "Mystery",
+          "year": 1986,
+          "publisher": "Vanathi Pathippagam",
+          "language": "Tamil",
+          "pages": 294,
+          "isbn": "9788180617922",
+          "status": "available",
+          "quantity": 2,
+          "price": 210,
+          "id": 20
+        }
+      ]
     }
   ],
   "books": [
     {
-      "id": 17,
-      "title": "Parthiban Kanavu",
-      "author": "Kalki Krishnamurthy",
-      "genre": "Historical Fiction",
-      "year": 1941,
-      "publisher": "Vanathi Pathippagam",
-      "language": "Tamil",
-      "pages": 412,
-      "isbn": "9788180617922",
-      "status": "available",
-      "quantity": 2,
-      "price": 230
-    },
-    {
+      "id": 18,
       "title": "Mooka Nathi",
       "author": "Cho Ramaswamy",
       "genre": "Satire",
@@ -726,8 +868,7 @@
       "isbn": "9788180617922",
       "status": "available",
       "quantity": 3,
-      "price": 190,
-      "id": 18
+      "price": 190
     },
     {
       "title": "Mahanati",
@@ -756,20 +897,6 @@
       "quantity": 2,
       "price": 210,
       "id": 20
-    },
-    {
-      "title": "Navagraha Nayagi",
-      "author": "Vai Mu Kothainayaki Ammal",
-      "genre": "Poetry",
-      "year": 1957,
-      "publisher": "Vanathi Pathippagam",
-      "language": "Tamil",
-      "pages": 112,
-      "isbn": "9788180617922",
-      "status": "available",
-      "quantity": 1,
-      "price": 180,
-      "id": 21
     },
     {
       "title": "Jeevanum Samayavum",
@@ -924,6 +1051,20 @@
       "quantity": 2,
       "price": 230,
       "id": 32
+    },
+    {
+      "title": "Title",
+      "author": "sas",
+      "genre": "sf",
+      "year": "2000",
+      "publisher": "india",
+      "language": "Kannada",
+      "pages": "300",
+      "isbn": "fsd",
+      "status": "available",
+      "quantity": "20",
+      "price": "200",
+      "id": 33
     }
   ],
   "transactions": []

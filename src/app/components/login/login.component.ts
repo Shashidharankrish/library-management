@@ -16,8 +16,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private snackBar: MatSnackBar
-  ) {}
+    private snackBar: MatSnackBar,
+  ) {
+  }
+  
 
   ngOnInit(): void {}
 
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit {
            
             this.snackBar.open('Invalid username or password', 'Close', {
               duration: 3000,
+              horizontalPosition: 'right',
             });
           }
         },
@@ -56,6 +59,7 @@ export class LoginComponent implements OnInit {
          
           this.snackBar.open('Login failed. Please try again later.', 'Close', {
             duration: 3000,
+            horizontalPosition: 'right',
           });
         }
       );

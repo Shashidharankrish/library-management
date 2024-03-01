@@ -34,8 +34,10 @@ export class BorrowingHistoryDialogComponent implements OnInit {
   
     this.userService.getUserById(this.userId).subscribe(
       (user: User) => {
+        console.log(user.borrowedBooks)
      
         this.borrowingHistory = user.borrowedBooks;
+
       },
       (error) => {
         console.error('Error fetching borrowing history:', error);
@@ -44,8 +46,8 @@ export class BorrowingHistoryDialogComponent implements OnInit {
   }
 
   returnBook(book: Book): void {
-   
-    if (book.status === 'borrowed') {
+   console.log(book)
+    if (book.status === 'available') {
      
       book.status = BookStatus.available;
 
@@ -60,16 +62,17 @@ export class BorrowingHistoryDialogComponent implements OnInit {
         contact: '',
         location: '',
         bookLimit: 0,
-
-        
-     
         borrowedBooks: this.borrowingHistory,
       };
 
     
       this.userService.updateUser(updatedUser).subscribe(
         () => {
-          console.log('Book returned successfully.');
+         this.snackBar.open('Updated successfully!', 'Close', {
+           duration: 3000,
+           panelClass: 'success-snackbar',
+           horizontalPosition: 'right',
+         });
         },
         (error) => {
           console.error('Error returning book:', error);

@@ -28,8 +28,6 @@ export class UserService {
 
   updateUser(user: User): Observable<User | null> {
     if (user.role === 'user') {
-      
-      console.log(user)
       let bookLimit = 5 - user.borrowedBooks.length;
       bookLimit = Math.max(bookLimit, 0);
       user.bookLimit = bookLimit.toString();

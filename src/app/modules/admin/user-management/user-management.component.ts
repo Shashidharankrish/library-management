@@ -66,7 +66,6 @@ export class UserManagementComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('Result', result);
         this.userService.addUser(result).subscribe(() => {
           this.loadUsers();
           this.openSnackBar('User added successfully');

@@ -49,7 +49,7 @@ export class AvailableBooksComponent implements OnInit {
           this.snackBar.open('Book borrowed successfully!', 'Close', {
             duration: 3000,
             panelClass: 'success-snackbar',
-            horizontalPosition: 'right',
+            horizontalPosition: 'center',
           });
         },
         (error) => {
@@ -69,6 +69,7 @@ export class AvailableBooksComponent implements OnInit {
       this.snackBar.open('Please login as a user to borrow books.', 'Close', {
         panelClass: 'error-snackbar',
         duration: 3000,
+        horizontalPosition: 'right',
       });
     }
   }

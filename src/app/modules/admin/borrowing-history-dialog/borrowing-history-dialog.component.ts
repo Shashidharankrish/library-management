@@ -20,7 +20,7 @@ export class BorrowingHistoryDialogComponent implements OnInit {
     private userService: UserService,
     private snackBar: MatSnackBar
   ) {
-    console.log('data', data);
+
     this.userId = data.user.id;
   }
 
@@ -31,7 +31,6 @@ export class BorrowingHistoryDialogComponent implements OnInit {
   fetchBorrowingHistory(): void {
     this.userService.getBorrowingHistory(this.userId).subscribe((history) => {
       this.borrowingHistory = history;
-      console.log('history', history);
     });
   }
 

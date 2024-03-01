@@ -61,9 +61,7 @@ export class UserProfileComponent implements OnInit {
         contact: this.userForm.value.contact,
         location: this.userForm.value.location,
       };
-      console.log(updatedUserDetails);
       this.userService.updateUser(updatedUserDetails).subscribe(() => {
-        console.log('User details updated successfully');
         this.dialogRef.close();
       });
     }

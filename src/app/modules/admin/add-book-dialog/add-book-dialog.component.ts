@@ -35,18 +35,17 @@ export class AddBookDialogComponent implements OnInit {
 
   addBook(): void {
     if (this.bookForm.valid) {
-    
       this.dialogRef.close(this.bookForm.value);
-
-    
       this.snackBar.open('Book added successfully!', 'Close', {
         duration: 3000,
+        horizontalPosition: 'right',
       });
     } else {
    
       this.snackBar.open('Please fill in all required fields.', 'Close', {
         duration: 3000,
-        panelClass: 'error-snackbar', 
+        panelClass: 'error-snackbar',
+        horizontalPosition: 'right',
       });
     }
   }

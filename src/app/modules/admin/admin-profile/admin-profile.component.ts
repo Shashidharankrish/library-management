@@ -62,9 +62,7 @@ export class AdminProfileComponent implements OnInit {
         contact: this.adminForm.value.contact,
         location: this.adminForm.value.location,
       };
-      console.log(updatedAdminDetails);
       this.userService.updateUser(updatedAdminDetails).subscribe(() => {
-        console.log('Admin details updated successfully');
         this.dialogRef.close();
       });
     }

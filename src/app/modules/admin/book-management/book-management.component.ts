@@ -44,10 +44,13 @@ export class BookManagementComponent implements OnInit {
 
   loadBooks(): void {
     this.booksService.getAllBooks().subscribe((books) => {
+
       this.books = books;
+ 
+
       this.dataSource = new MatTableDataSource(books);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+             this.dataSource.sort = this.sort;
+             this.dataSource.paginator = this.paginator;
     });
   }
 
@@ -101,6 +104,7 @@ export class BookManagementComponent implements OnInit {
   openSnackBar(message: string): void {
     this.snackBar.open(message, 'Close', {
       duration: 3000,
+      horizontalPosition: 'center',
     });
   }
 }

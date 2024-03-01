@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
     if (!this.username || !this.password || !this.contact || !this.location || !this.name) {
       this.snackBar.open('All fields are required', 'Close', {
         duration: 3000,
+        horizontalPosition: 'right',
       });
       return;
     }
@@ -51,14 +52,20 @@ export class RegisterComponent implements OnInit {
       () => {
         this.snackBar.open('User registered successfully', 'Close', {
           duration: 3000,
+          horizontalPosition: 'right',
         });
         this.router.navigate(['/login']);
       },
       (error) => {
         console.error('Error registering user:', error);
-        this.snackBar.open('Error registering user. Please try again later.', 'Close', {
-          duration: 3000,
-        });
+        this.snackBar.open(
+          'Error registering user. Please try again later.',
+          'Close',
+          {
+            duration: 3000,
+            horizontalPosition: 'right',
+          }
+        );
       }
     );
   }
