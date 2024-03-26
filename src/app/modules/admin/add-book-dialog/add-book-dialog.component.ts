@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AddBookDialogComponent implements OnInit {
   bookForm: FormGroup;
+  previewImage: string | ArrayBuffer | null = null;
 
   constructor(
     private dialogRef: MatDialogRef<AddBookDialogComponent>,
@@ -63,6 +64,7 @@ export class AddBookDialogComponent implements OnInit {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
+        this.previewImage = reader.result;
         this.bookForm.patchValue({
           imageURL: file.name,
         });
@@ -77,6 +79,7 @@ export class AddBookDialogComponent implements OnInit {
   //   if (file) {
   //     const reader = new FileReader();
   //     reader.onload = () => {
+  //       this.previewImage = reader.result;
   //       this.bookForm.patchValue({
   //         imageURL: reader.result,
   //       });

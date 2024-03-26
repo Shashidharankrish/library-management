@@ -10,6 +10,7 @@ import { Book, BookStatus } from 'src/app/models/book.model';
 })
 export class EditBookDialogComponent implements OnInit {
   bookForm: FormGroup;
+  previewImage: string | ArrayBuffer | null = null;
   book: Book = {
     id: '',
     title: '',
@@ -85,13 +86,15 @@ export class EditBookDialogComponent implements OnInit {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
+        this.previewImage = reader.result; 
         this.bookForm.patchValue({
-          imageURL: file.name,
+          imageURL: file.name, 
         });
       };
       reader.readAsDataURL(file);
     }
   }
+  
 
   // onFileSelected2(event: any) {
   

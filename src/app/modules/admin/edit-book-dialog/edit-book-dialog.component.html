@@ -25,10 +25,15 @@
             <mat-label>Language</mat-label>
             <input matInput placeholder="Language" formControlName="language" required>
         </mat-form-field>
-    <mat-form-field appearance="outline">
-        <input matInput />
-        <input type="file" (change)="onFileSelected($event)" matInputFile placeholder="Choose file" accept="image/*" />
-    </mat-form-field>
+        <mat-form-field appearance="outline">
+            <input matInput [placeholder]="bookForm.get('imageURL')?.value" disabled>
+            <input type="file" (change)="onFileSelected($event)" matInputFile 
+                accept="image/*" />
+        </mat-form-field>
+        <div *ngIf="previewImage" class="image-preview">
+            <img [src]="previewImage" alt="Uploaded Image">
+        </div>
+
         <mat-form-field appearance="outline">
             <mat-label>Pages</mat-label>
             <input matInput placeholder="Pages" formControlName="pages" required>
@@ -56,6 +61,7 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button (click)="onCancel()">Cancel</button>
-    <button mat-button color="primary" [disabled]="!bookForm.valid" [mat-dialog-close]="bookForm.value">Update</button>
+    <button mat-button (click)="onCancel()" color="warn">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!bookForm.valid"
+        [mat-dialog-close]="bookForm.value">Update</button>
 </mat-dialog-actions>
